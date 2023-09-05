@@ -14,7 +14,8 @@ import static ru.litres.utils.FakerUtils.getFakePromoCode;
 public class MainPage {
     private SelenideElement
             inputTypeSearch = $("[data-test-id='header__search-input--desktop']"),
-            searchResultList = $("[data-test-id='header__search-result-list']"),
+            //searchResultList = $("[data-test-id='header__search-result-list']"),
+            searchResultList = $("[data-test-id='popover__content']"),
             cookieAcceptPopup = $("[data-test-id='cookieAcceptPopup']"),
             loginButton = $("[data-test-id='header__login-button--desktop']"),
             authorizationPopup = $("[data-test-id='authorization-popup']"),

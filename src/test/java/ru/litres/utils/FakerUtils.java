@@ -8,6 +8,6 @@ public class FakerUtils {
     }
 
     public static String getFakeBook() {
-        return new Faker().book().title();
+        return new Faker().book().title().replaceAll(" ", "");
     }
 }
