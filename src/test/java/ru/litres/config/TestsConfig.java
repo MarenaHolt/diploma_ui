@@ -20,7 +20,7 @@ public interface TestsConfig extends Config {
     String getBrowserSize();
 
     @Key("browserVersion")
-    @DefaultValue("113.0")
+    @DefaultValue("100.0")
     String getBrowserVersion();
 
     @Key("remoteDriverUrl")
