@@ -64,6 +64,7 @@ ${TASK}
 -DbrowserSize=${BROWSER_SIZE}
 -Dbrowser=${BROWSER}
 -DbrowserVersion=${BROWSER_VERSION}
+-Denv=remote
 ```
 
 ### Параметры сборки
@@ -72,44 +73,44 @@ ${TASK}
 * <code>BASE_URL</code> – Url, по которому будет открываться тестируемое приложение.
 * <code>BROWSER_SIZE</code> – размер окна браузера, в котором будут выполняться тесты. По-умолчанию - <code>1920х1080</code>.
 * <code>BROWSER</code> – браузер, в котором будут выполняться тесты. По-умолчанию - <code>chrome</code>.
-* <code>BROWSER_VERSION</code> – версия браузера, в которой будут выполняться тесты. По-умолчанию - <code>113.0</code>.
+* <code>BROWSER_VERSION</code> – версия браузера, в которой будут выполняться тесты. По-умолчанию - <code>100.0</code>.
 
 
 
-## <img src="media/logo/Jenkins.svg" title="Jenkins" width="4%"/> Сборка в Jenkins
-<p align="center">
-<img title="Jenkins Build" src="media/screen/jenkins_s.png">
+<a id="jenkins"></a>
+## <img src="media/logo/Jenkins.svg" width="25" height="25"/></a> Сборка в [Jenkins](https://jenkins.autotests.cloud/job/mar-ui/)
+<img title="Jenkins Build" src="media/screen/jenkins_s_ui.png">
 </p>
 
-## <img src="media/logo/Allure.svg" title="Allure Report" width="4%"/> Пример Allure-отчета
+## <img src="media/logo/Allure.svg" title="Allure Report" width="4%"/> Пример [Allure-отчета](https://jenkins.autotests.cloud/job/mar-ui/12/allure/)
 ### Overview
 
 <p align="center">
-<img title="Allure Overview" src="media/screen/allure1.png">
+<img title="Allure Overview" src="media/screen/allure_r-ui.png">
 </p>
 
 ### Результат выполнения теста
 
 <p align="center">
-<img title="Test Results in Allure" src="media/screen/allure2.png">
+<img title="Test Results in Allure" src="media/screen/allure_r-ui_t.png">
 </p>
 
-## <img src="media/logo/Allure2.svg" title="Allure TestOps" width="4%"/> Интеграция с Allure TestOps
+## <img src="media/logo/Allure2.svg" title="Allure TestOps" width="4%"/> Интеграция с [Allure TestOps](https://allure.autotests.cloud/project/3648/dashboards)
 
 Выполнена интеграция сборки <code>Jenkins</code> с <code>Allure TestOps</code>.
 Результат выполнения автотестов отображается в <code>Allure TestOps</code>
 На Dashboard в <code>Allure TestOps</code> отображена статистика пройденных тестов.
 
 <p align="center">
-<img title="Allure TestOps DashBoard" src="media/screen/allure_test.png">
+<img title="Allure TestOps DashBoard" src="media/screen/allute_to.png">
 </p>
 
-## <img src="media/logo/Jira.svg" title="Jira" width="4%"/> Интеграция с Jira
+## <img src="media/logo/Jira.svg" title="Jira" width="4%"/> Интеграция с [Jira](https://jira.autotests.cloud/browse/HOMEWORK-870)
 
 Реализована интеграция <code>Allure TestOps</code> с <code>Jira</code>, в тикете отображается информация, какие тест-кейсы были написаны в рамках задачи и результат их прогона.
 
 <p align="center">
-<img title="Jira Task" src="media/screen/jira.png">
+<img title="Jira Task" src="media/screen/jira_t_ui.png">
 </p>
 
 ## <img width="4%" style="vertical-align:middle" title="Telegram" src="media/logo/Telegram.svg"> Уведомления в Telegram с использованием бота
@@ -117,7 +118,7 @@ ${TASK}
 После завершения сборки, бот созданный в <code>Telegram</code>, автоматически обрабатывает и отправляет сообщение с результатом.
 
 <p align="center">
-<img width="70%" title="Telegram Notifications" src="media/screen/telegram.png">
+<img width="70%" title="Telegram Notifications" src="media/screen/telegram_ui.png">
 </p>
 
 ## Видео примера запуска тестов в Selenoid

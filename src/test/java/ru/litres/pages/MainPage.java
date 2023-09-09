@@ -14,16 +14,14 @@ import static ru.litres.utils.FakerUtils.getFakePromoCode;
 public class MainPage {
     private SelenideElement
             inputTypeSearch = $("[data-test-id='header__search-input--desktop']"),
-            //searchResultList = $("[data-test-id='header__search-result-list']"),
             searchResultList = $("[data-test-id='popover__content']"),
             cookieAcceptPopup = $("[data-test-id='cookieAcceptPopup']"),
             loginButton = $("[data-test-id='header__login-button--desktop']"),
             authorizationPopup = $("[data-test-id='authorization-popup']"),
             promoCodeButton = $("[data-id='promoCodes']"),
-    couponeForm = $("#activate_coupone_form"),
-    couponeCode = $("#code1"),
-    activateCouponButton = $("#activate_coupon");
-          //  id="activate_coupon";
+            couponeForm = $("#activate_coupone_form"),
+            couponeCode = $("#code1"),
+            activateCouponButton = $("#activate_coupon");
 
     private static ElementsCollection resultElementsHeaders = $$(("[data-test-id='lower-menu--desktop']"));
 
