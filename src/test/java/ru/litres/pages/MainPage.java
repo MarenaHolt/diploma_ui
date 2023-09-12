@@ -56,7 +56,6 @@ public class MainPage {
 
     @Step("Отображение на главной странице плейсхолдера с подсказками в поле поиска")
     public MainPage checkInputTypeSearchPlaceholder() {
-        inputTypeSearch.shouldHave(Condition.visible);
         assertThat(inputTypeSearch.shouldHave(Condition.visible).getAttribute("placeholder"))
                 .isEqualTo("Книга, серия, автор, жанр, издательство");
         return this;
