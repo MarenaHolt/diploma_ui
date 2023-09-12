@@ -80,9 +80,8 @@ ${TASK}
 <a id="jenkins"></a>
 ## <img src="media/logo/Jenkins.svg" width="25" height="25"/></a> Сборка в [Jenkins](https://jenkins.autotests.cloud/job/mar-ui/)
 <img title="Jenkins Build" src="media/screen/jenkins_s_ui.png">
-</p>
 
-## <img src="media/logo/Allure.svg" title="Allure Report" width="4%"/> Пример [Allure-отчета](https://jenkins.autotests.cloud/job/mar-ui/12/allure/)
+## <img src="media/logo/Allure.svg" title="Allure Report" width="4%"/> Пример [Allure-отчета]( https://jenkins.autotests.cloud/job/mar-ui/allure/)
 ### Overview
 
 <p align="center">

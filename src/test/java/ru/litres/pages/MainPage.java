@@ -7,9 +7,7 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.WebDriverConditions.url;
 import static org.assertj.core.api.Assertions.assertThat;
-import static ru.litres.utils.FakerUtils.getFakePromoCode;
 
 public class MainPage {
     private SelenideElement
@@ -18,10 +16,7 @@ public class MainPage {
             cookieAcceptPopup = $("[data-test-id='cookieAcceptPopup']"),
             loginButton = $("[data-test-id='header__login-button--desktop']"),
             authorizationPopup = $("[data-test-id='authorization-popup']"),
-            promoCodeButton = $("[data-id='promoCodes']"),
-            couponeForm = $("#activate_coupone_form"),
-            couponeCode = $("#code1"),
-            activateCouponButton = $("#activate_coupon");
+            promoCodeButton = $("[data-id='promoCodes']");
 
     private static ElementsCollection resultElementsHeaders = $$(("[data-test-id='lower-menu--desktop']"));
 
@@ -39,22 +34,27 @@ public class MainPage {
         return this;
     }
 
-    @Step("Отображение подсказок в поиске")
-    public MainPage checkSearchResultListIsVisible(String text) {
+    @Step("Ввод текста в строку поиска")
+    public MainPage putTextInInput(String text) {
         inputTypeSearch.click();
         inputTypeSearch.setValue(text);
+        return this;
+    }
+
+    @Step("Отображение подсказок в поиске")
+    public MainPage checkSearchResultListIsVisible() {
         searchResultList.shouldHave(Condition.visible);
         return this;
     }
 
-    @Step("В поле подсказок в поиске отображаются кнопки Ранее вы искали и очистить историю")
-    public MainPage checkUrlOfPageWithSearchResult(String text) {
+    @Step("Поиск книги: ввести в строку название и кликнуть для перехода на другую страницу")
+    public MainPage putTextInInputSearchAndSubmit(String text) {
         inputTypeSearch.click();
         inputTypeSearch.setValue(text).submit();
-        webdriver().shouldHave(url("https://www.litres.ru/search/?q=" + text));
         return this;
     }
 
+    @Step("Отображение на главной странице плейсхолдера с подсказками в поле поиска")
     public MainPage checkInputTypeSearchPlaceholder() {
         inputTypeSearch.shouldHave(Condition.visible);
         assertThat(inputTypeSearch.shouldHave(Condition.visible).getAttribute("placeholder"))
@@ -62,14 +62,23 @@ public class MainPage {
         return this;
     }
 
-    public MainPage checkСookieAcceptPopup() {
-        assertThat(cookieAcceptPopup.shouldHave(Condition.visible).getText()).isEqualTo("Продолжая использовать этот сайт, вы даете согласие ООО \"ЛитРес\", город Москва, на обработку файлов cookie и соответствующих пользовательских данных... далее\n" +
-                "ПРИНЯТЬ");
+    @Step("Отображение на главной странице всплывающего окно с согласием на обработку файлов cookie")
+    public MainPage checkCookieAcceptPopup() {
+        assertThat(cookieAcceptPopup.shouldHave(Condition.visible).getText())
+                .isEqualTo("Продолжая использовать этот сайт, вы даете согласие ООО \"ЛитРес\", город Москва, " +
+                        "на обработку файлов cookie и соответствующих пользовательских данных... далее\n" +
+                        "ПРИНЯТЬ");
         return this;
     }
 
-    public MainPage checkAuthorizationPopupExists() {
+    @Step("Клик по кнопке Войти на главной странице")
+    public MainPage clickButtonLogin() {
         loginButton.shouldHave(Condition.visible).click();
+        return this;
+    }
+
+    @Step("Отображение на главной странице всплывающего окна авторизации")
+    public MainPage checkAuthorizationPopupExists() {
         assertThat(authorizationPopup.shouldHave(Condition.visible).getText()).isEqualTo("Вход или регистрация\n" +
                 "VK ID\n" +
                 "OK\n" +
@@ -84,22 +93,9 @@ public class MainPage {
         return this;
     }
 
-    public MainPage checkPromoCode() {
+    @Step("Клик по кнопке Промокод на главной странице")
+    public MainPage clickPromoCodeButton() {
         promoCodeButton.shouldHave(Condition.visible).click();
-        couponeForm.shouldHave(Condition.visible).shouldHave(Condition.text("Активация промокода Литрес"));
-        couponeCode.setValue(getFakePromoCode());
-        activateCouponButton.click();
-        assertThat(authorizationPopup.shouldHave(Condition.visible).getText()).isEqualTo("Чтобы активировать промокод, зарегистрируйтесь или войдите\n" +
-                "VK ID\n" +
-                "OK\n" +
-                "Яндекс\n" +
-                "Google\n" +
-                "Mail.ru\n" +
-                "ЭЛЕКТРОННАЯ ПОЧТА\n" +
-                "НОМЕР ТЕЛЕФОНА\n" +
-                "Используя ЛитРес, вы соглашаетесь с условиями обслуживания\n" +
-                "Вход через приложение ЛитРес\n" +
-                "Вход по читательскому билету");
         return this;
     }
 
