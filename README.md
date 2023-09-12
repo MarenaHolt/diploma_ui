@@ -85,13 +85,13 @@ ${TASK}
 ### Overview
 
 <p align="center">
-<img title="Allure Overview" src="media/screen/allure_r-ui.png">
+<img title="Allure Overview" src="media/screen/allure_j.png">
 </p>
 
 ### Результат выполнения теста
 
 <p align="center">
-<img title="Test Results in Allure" src="media/screen/allure_r-ui_t.png">
+<img title="Test Results in Allure" src="media/screen/allure_ui.png">
 </p>
 
 ## <img src="media/logo/Allure2.svg" title="Allure TestOps" width="4%"/> Интеграция с [Allure TestOps](https://allure.autotests.cloud/project/3648/dashboards)
